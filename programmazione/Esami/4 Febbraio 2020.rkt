@@ -64,3 +64,26 @@
 ))
 
 (btr-val-tr "--+.-")
+
+; ESERCIZIO 4 A
+
+(define f ; val: intero
+ (lambda (x y u v) ; x, y ≥ 0 interi; u, v interi
+    (cond ((and (= u 0) (= v 0)) 0)
+            ((= x 0)
+                (if (= u 0) 0 1))
+            ((= y 0)
+                (if (= v 0) 0 1))
+            (else 
+                (+ (f (- x 1) y (- u 1) v) (f x (- y 1) u (- v 1))))
+)))
+
+; 1) k
+
+; 2) f(l n 0 0) fa 0
+
+; 3) per ogni n ≥ 0 e 0 ≤ k ≤ n    n (f 1 n 0 k) → k
+
+; 4) fissato n e k, f(l n 0 (k+1)) -> k+1
+
+; 5)
