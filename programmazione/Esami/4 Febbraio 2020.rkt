@@ -56,8 +56,8 @@
             )
             (if (= k 0)
                 x
-            (let ((q (substring btr 0 (- k 1)))
-                (t (string-ref btr (- k 1)))
+            (let ((q (substring btr 1))
+                (t (string-ref btr 0))
                 )
             (btr-val-rec q (+ x (* (btd-val t) (expt 3 (- k 1)))))
             )))
