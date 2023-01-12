@@ -21,20 +21,46 @@
 
 ; Es. 3
 
-(define btr-val-tr ; val: intero
+(define btr-val ; val: intero
  (lambda (btr) ; btr: stringa di – / . / +
-    (btr-val-rec )
-    ))
+    (let ((k (string-length btr))
+            )
+        (if (= k 0)
+            0
+            (let ((p (substring btr 0 (- k 1)))
+                    (t (string-ref btr (- k 1)))
+                    )
+                (+ (* 3 (btr-val p)) (btd-val t))
+                )))
+))
 
-(define btr-val-rec
- (lambda (x)
-  (let ((k (string-length x))
-  )
-   (if (= k 0)
-     0
-    (let ((q (substring x 0 (- k 1)))
-    (t (string-ref x (- k 1)))
+(define btd-val
+ (lambda (t)
+    (cond ((char=? t #\-) -1)
+        ((char=? t #\.) 0)
+        ((char=? t #\+) +1)
     )
-     (btr-val-rec )
-     )))
-     ))
+))
+
+(btr-val "--+.-")
+
+
+ (define btr-val-tr ; val: intero
+    (lambda (btr) ; btr: stringa di – / . / +
+    (btr-val-rec btr 0)
+ ))
+
+ (define btr-val-rec
+    (lambda (btr x)
+        (let ((k (string-length btr))
+            )
+            (if (= k 0)
+                x
+            (let ((q (substring btr 0 (- k 1)))
+                (t (string-ref btr (- k 1)))
+                )
+            (btr-val-rec q (+ x (* (btd-val t) (expt 3 (- k 1)))))
+            )))
+))
+
+(btr-val-tr "--+.-")
