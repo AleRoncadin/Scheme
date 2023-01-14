@@ -1,0 +1,8 @@
+(null? lista) --> ritorna true se è vuota
+(cons elementoDaAggingere lista) --> aggiunge un elemento a una lista
+(car lista) --> ritorna il primo elemento
+(cdr lista) --> ritorna dal secondo elemento in poi
+(list-ref lista posizione) --> ritorna l'elemento in una posizione della lista
+(length lista) --> ritorna la lunghezza di una lista
+(append lista1 lista2) --> ritorna l'unione di due liste
+(reverse lista) --> ritorna la lista rovesciata
